@@ -1,7 +1,9 @@
 <?php
-use backend\assets\LoginAsset;
+use backend\assets\PanelAsset;
+use yii\helpers\Url;
+use yii\helpers\Html;
 
-LoginAsset::register($this);
+PanelAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

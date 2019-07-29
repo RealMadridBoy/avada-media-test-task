@@ -12,6 +12,7 @@ use common\models\LoginForm;
  */
 class SiteController extends Controller
 {
+    public $layout = 'panel';
     /**
      * {@inheritdoc}
      */
@@ -60,8 +61,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = 'login';
-        
         return $this->render('index');
     }
 
@@ -72,6 +71,8 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'login';
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -82,7 +83,7 @@ class SiteController extends Controller
         } else {
             $model->password = '';
 
-            return $this->render('login', [
+            return $this->render('new_login', [
                 'model' => $model,
             ]);
         }

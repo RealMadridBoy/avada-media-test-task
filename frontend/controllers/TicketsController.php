@@ -14,17 +14,8 @@ class TicketsController extends \yii\rest\ActiveController
     public function actions()
     {
         $actions = parent::actions();
-        //unset($actions['index']);
-        //unset($actions['create']);
-        //unset($actions['delete']);
         unset($actions['update']);
-        //unset($actions['view']);
         return $actions;
-    }
-
-    public function actionIndex()
-    {
-        return $this->render('index');
     }
 
     public function actionUpdate($id)

@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class TicketController extends Controller
 {
+    public $layout = 'panel';
     /**
      * {@inheritdoc}
      */

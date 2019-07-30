@@ -17,5 +17,23 @@ class TicketsApiTest extends \Codeception\Test\Unit
 {
     protected $tester;
 
-    
+    public function testPOST()
+    {
+        
+    }
+
+    public function testGET()
+    {
+
+    }
+
+    public function testPUT()
+    {
+
+    }
+
+    public function testDELETE()
+    {
+
+    }
 }

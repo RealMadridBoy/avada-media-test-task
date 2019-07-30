@@ -19,7 +19,7 @@ class PanelAsset extends AssetBundle
         'dist/css/skins/skin-blue.min.css',
     ];
     public $js = [
-        'bower_components/jquery/dist/jquery.min.js',
+        //'bower_components/jquery/dist/jquery.min.js',
         'bower_components/bootstrap/dist/js/bootstrap.min.js',
         'dist/js/adminlte.min.js'
     ];

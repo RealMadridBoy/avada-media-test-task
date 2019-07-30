@@ -19,7 +19,7 @@ class LoginAsset extends AssetBundle
         'plugins/iCheck/square/blue.css',
     ];
     public $js = [
-        'bower_components/jquery/dist/jquery.min.js',
+        //'bower_components/jquery/dist/jquery.min.js',
         'bower_components/bootstrap/dist/js/bootstrap.min.js',
         'plugins/iCheck/icheck.min.js'
     ];

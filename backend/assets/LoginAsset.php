@@ -24,8 +24,8 @@ class LoginAsset extends AssetBundle
         'plugins/iCheck/icheck.min.js'
     ];
     public $depends = [
-        /*
         'yii\web\YiiAsset',
+        /*
         'yii\bootstrap\BootstrapAsset',
         */
     ];

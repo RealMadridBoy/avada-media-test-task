@@ -40,9 +40,9 @@ class Tickets extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'row' => 'Row',
-            'place' => 'Place',
-            'status' => 'Status',
+            'row' => 'Ряд',
+            'place' => 'Место',
+            'status' => 'Статус',
         ];
     }
 }

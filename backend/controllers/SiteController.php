@@ -6,6 +6,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\SignupForm;
+use common\models\User;
 
 /**
  * Site controller
@@ -23,7 +25,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error', 'signup'],
                         'allow' => true,
                     ],
                     [
@@ -76,7 +78,7 @@ class SiteController extends Controller
 
         if (!Yii::$app->user->isGuest) {
             //return $this->goHome();
-            return $this->redirect('tickets/index');
+            return $this->redirect('ticket/index');
         }
 
         $model = new LoginForm();
@@ -101,5 +103,29 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionSignup()
+    {
+        $this->layout = 'login';
+
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        $model = new SignupForm();
+        if($model->load(\Yii::$app->request->post()) && $model->validate()){
+            $user = new User();
+            $user->username = $model->username;
+            $user->password = $user->setPassword($model->password);
+            $user->generateAuthKey();
+            if($user->save(false)){
+                //return $this->goHome();
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->redirect('ticket/index');
+                }
+            }
+        }
+
+        return $this->render('signup', compact('model'));
     }
 }

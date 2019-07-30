@@ -24,8 +24,8 @@ class PanelAsset extends AssetBundle
         'dist/js/adminlte.min.js'
     ];
     public $depends = [
-        /*
         'yii\web\YiiAsset',
+        /*
         'yii\bootstrap\BootstrapAsset',
         */
     ];

@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 
 ?>
 
@@ -12,20 +13,23 @@ use yii\helpers\Html;
     <p class="login-box-msg">Sign in to start your session</p>
 
     <!--<form action="../../index2.html" method="post">-->
-    <?=Html::beginForm('', 'post') ?>
+    <?php $form = ActiveForm::begin() ?>
         <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email">
+            <!--<input type="email" class="form-control" placeholder="Email">-->
+            <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Email'])->label(false) ?>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password">
+            <!--<input type="password" class="form-control" placeholder="Password">-->
+            <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Password'])->label(false) ?>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
             <div class="col-xs-8">
                 <div class="checkbox icheck">
                     <label>
-                        <input type="checkbox"> Remember Me
+                        <!--<input type="checkbox"> Remember Me-->
+                        <?= $form->field($model, 'rememberMe', ['options' => ['tag' => false]])->checkbox(['template' => '{input}']) ?> Remember Me
                     </label>
                 </div>
             </div>
@@ -36,7 +40,7 @@ use yii\helpers\Html;
             <!-- /.col -->
         </div>
     <!--</form>-->
-    <?=Html::endForm(); ?>
+    <?php ActiveForm::end(); ?>
 
 </div>
 <!-- /.login-box-body -->
